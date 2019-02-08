@@ -1,0 +1,112 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "better bop it",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "GetNumberOfPlayers",
+                    "slots": [
+                        {
+                            "name": "numOfPlayers",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{numOfPlayers}",
+                                "{numOfPlayers} players",
+                                "I would like {numOfPlayers} players"
+                            ]
+                        }
+                    ],
+                    "samples": []
+                }
+            ],
+            "types": []
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "GetNumberOfPlayers",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "numOfPlayers",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.235321019576.987558379634"
+                            },
+                            "validations": [
+                                {
+                                    "type": "isLessThanOrEqualTo",
+                                    "prompt": "Slot.Validation.235321019576.987558379634.1241161425158",
+                                    "value": "10"
+                                },
+                                {
+                                    "type": "isGreaterThanOrEqualTo",
+                                    "prompt": "Slot.Validation.235321019576.987558379634.312883286476",
+                                    "value": "1"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Confirm.Intent.388078076493",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Do you really want to launch Nate's intent?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.235321019576.987558379634",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "How many players do you want to play with?"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.235321019576.987558379634.1241161425158",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Starting better bop it with {numOfPlayers} players"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.235321019576.987558379634.312883286476",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Starting better bop it with {numOfPlayers} players"
+                    }
+                ]
+            }
+        ]
+    }
+}
